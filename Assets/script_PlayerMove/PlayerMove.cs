@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
     public int playerPosition = 1;
     [SerializeField] private List<Transform> platform = new List<Transform>(40);
@@ -13,19 +13,19 @@ public class player : MonoBehaviour
         playerPosition = 1;
     }
 
-    public void PlayerMove(int moveCount)
+    public void playerMove(int moveCount)
     {
-        StartCoroutine(PlayerMoveCoroutine(moveCount));
+        StartCoroutine(playerMoveCoroutine(moveCount));
         playerPosition+=moveCount;
     }
 
-    public void PlayerLadderMove(int endIndex)
+    public void playerLadderMove(int endIndex)
     {
-        StartCoroutine(PlayerLadderMoveCoroutine(endIndex));
+        StartCoroutine(playerLadderMoveCoroutine(endIndex));
     }
 
     //플래이어 보드 이동
-    IEnumerator PlayerMoveCoroutine(int moveCount)
+    IEnumerator playerMoveCoroutine(int moveCount)
     {
         int targetIndex = playerPosition - 1 + moveCount;
 
@@ -74,7 +74,7 @@ public class player : MonoBehaviour
     }
     
     //플래이어 사다리 이동
-    IEnumerator PlayerLadderMoveCoroutine(int endIndex)
+    IEnumerator playerLadderMoveCoroutine(int endIndex)
     {
         Vector3 start = transform.position;
         Vector3 end = new Vector3(
