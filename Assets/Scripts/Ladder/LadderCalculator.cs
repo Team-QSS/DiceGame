@@ -17,6 +17,6 @@ public class LadderCalculator
                 return value;
             }
         }
-        return 0;
+        return number;
     }
 }
