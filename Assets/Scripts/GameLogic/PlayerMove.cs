@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Ladder;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GameLogic
 {
@@ -76,8 +77,10 @@ namespace GameLogic
 
                 yield return new WaitForSeconds(0.1f);
             }
+
             if (_ladderCalculator.CalculateLadder(playerPosition) != playerPosition)
                 playerLadderMove(_ladderCalculator.CalculateLadder(playerPosition));
+            else if (GameEndDetector.CheckEnd()) SceneManager.LoadScene("Ranking");
         }
     
         //플래이어 사다리 이동
@@ -101,6 +104,7 @@ namespace GameLogic
             }
 
             transform.position = end;
+            if (GameEndDetector.CheckEnd()) SceneManager.LoadScene("Ranking");
         }
     }
 }
