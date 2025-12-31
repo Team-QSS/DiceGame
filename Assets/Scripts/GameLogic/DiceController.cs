@@ -28,7 +28,7 @@ public class DiceController : MonoBehaviour
     {
         OnDiceRolled += num =>
         {
-            // PlayerSelect.SelectedPlayer.playerMove(num);
+            Select.SelectedCharacterObject.playerMove(num);
         };
         InitDice();
     }

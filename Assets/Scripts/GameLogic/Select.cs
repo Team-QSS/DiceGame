@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class Select : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     private static Select selectedCharacter;
-    public static GameObject SelectedCharacterObject { get; private set; }
+    public static PlayerMove SelectedCharacterObject { get; private set; }
     private Color originalColor;
     private SpriteRenderer spriteRenderer;
 
@@ -22,7 +22,7 @@ public class Select : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
         
         selectedCharacter = this;
-        SelectedCharacterObject = this.gameObject;
+        SelectedCharacterObject = transform.parent.GetComponent<PlayerMove>();
         spriteRenderer.color = Color.green;
         Debug.Log(SelectedCharacterObject);
     }
