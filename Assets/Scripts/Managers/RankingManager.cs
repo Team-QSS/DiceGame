@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Managers
 {
@@ -37,6 +38,11 @@ namespace Managers
                 3 => "933",
                 _ => "FFF"
             };
+        }
+
+        public void Restart()
+        {
+            SceneManager.LoadScene("Map");
         }
     }
 
