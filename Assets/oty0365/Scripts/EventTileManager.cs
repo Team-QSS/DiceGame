@@ -22,6 +22,7 @@ public class EventTileManager : SceneSingletonMonoBehavior<EventTileManager>
 
     public void RandomTiles()
     {
+        //아직은 확률이 전부 동일함 추가적인 확률작업 필요
         int idx=Random.Range(0, _tilesDict.Count);
         tiles.uniqueTiles[idx].SetEffect();
     }
