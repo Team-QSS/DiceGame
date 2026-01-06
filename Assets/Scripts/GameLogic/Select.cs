@@ -25,7 +25,6 @@ public class Select : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         selectedCharacter = this;
         SelectedCharacterObject = transform.parent.GetComponent<PlayerMove>();
         spriteRenderer.color = Color.green;
-        Debug.Log(SelectedCharacterObject);
     }
     
     public void OnPointerUp(PointerEventData eventData)

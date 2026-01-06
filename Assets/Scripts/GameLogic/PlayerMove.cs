@@ -9,8 +9,10 @@ namespace GameLogic
     public class PlayerMove : MonoBehaviour
     {
         public int playerPosition = 1;
+        public int playerId;
         private LadderCalculator _ladderCalculator;
         [SerializeField] private List<Transform> platform = new List<Transform>(40);
+        [SerializeField] private TileChecker tileChecker;
 
         private void Awake()
         {
@@ -21,7 +23,7 @@ namespace GameLogic
         public void playerMove(int moveCount)
         {
             StartCoroutine(playerMoveCoroutine(moveCount));
-            playerPosition+=moveCount;
+            playerPosition += moveCount;
         }
 
         public void playerLadderMove(int endIndex)
@@ -80,7 +82,11 @@ namespace GameLogic
 
             if (_ladderCalculator.CalculateLadder(playerPosition) != playerPosition)
                 playerLadderMove(_ladderCalculator.CalculateLadder(playerPosition));
-            else if (GameEndDetector.CheckEnd()) SceneManager.LoadScene("Ranking");
+            else
+            {
+                TileEvent();
+                if (GameEndDetector.CheckEnd()) SceneManager.LoadScene("Ranking");
+            }
         }
     
         //플래이어 사다리 이동
@@ -104,7 +110,13 @@ namespace GameLogic
             }
 
             transform.position = end;
+            TileEvent();
             if (GameEndDetector.CheckEnd()) SceneManager.LoadScene("Ranking");
+        }
+
+        public void TileEvent()
+        {
+            tileChecker.PlayerMoveSet(playerPosition);
         }
     }
 }
