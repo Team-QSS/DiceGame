@@ -24,7 +24,9 @@ public class TileChecker : MonoBehaviour
     {
         if (_tilesDict.Contains(idx))
         {
+            //임시용 콜백
             OnEventTileEntered?.Invoke();
+            EventTileManager.Instance.RandomTiles();
         }
     }
 }

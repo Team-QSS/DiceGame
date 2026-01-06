@@ -1,6 +1,6 @@
 
 using UnityEngine;
-
+[CreateAssetMenu(menuName = "Tiles/GetLosePointsTile")]
 public class GetLosePointsTile:UniqueTile
 {
     public override void SetEffect()

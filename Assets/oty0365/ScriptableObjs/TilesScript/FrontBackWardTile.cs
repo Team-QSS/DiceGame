@@ -1,6 +1,6 @@
 
 using UnityEngine;
-
+[CreateAssetMenu(menuName = "Tiles/FrontBackWardTile")]
 public class FrontBackWardTile:UniqueTile
 {
     public override void SetEffect()
